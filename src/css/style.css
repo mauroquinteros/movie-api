@@ -1,0 +1,19 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  height: 100vh;
+  font-family: Geneva, Verdana, sans-serif;
+  grid-template-columns: repeat(2, 1fr);
+}
+.container {
+  grid-template-columns: 1fr;
+}
+.container > div {
+  border: 1px solid blue;
+  height: 400px;
+  overflow-y: scroll;
+}
