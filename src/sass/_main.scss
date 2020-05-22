@@ -1,0 +1,125 @@
+.main {
+  grid-area: main;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "search user"
+                       "list list";
+  overflow: scroll;
+}
+.search {
+  grid-area: search;
+  padding: 1em;
+  background-color: var(--clr-primary);
+  color: var(--clr-light);
+
+  &--form {
+    width: 100%;
+
+    input {
+      display: block;
+      width: 100%;
+      height: 35px;
+      padding: .5em 1em;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      font-size: 14px;
+      &:hover {
+        background: #efefef;
+      }
+      &:focus {
+        background: #efefef;
+      }
+    }
+  }
+}
+.user {
+  grid-area: user;
+  background-color: var(--clr-primary);
+  color: var(--clr-light);
+  display: flex;
+  justify-content: flex-end;
+
+  &--wrapper {
+    display: flex;
+    align-items: center;
+    padding: .5em 1em;
+    cursor: pointer;
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-left: 10px;
+    }
+  }
+}
+.category-container {
+  grid-area: list;
+  padding: 1em;
+  overflow: auto;
+}
+.category {
+  min-height: 350px;
+  &--topic {
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+  &--title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  &--list {
+    display: flex;
+    padding: 40px 0;
+    overflow: auto;
+    flex-wrap: nowrap;
+  }
+}
+.category + .category {
+  margin-top: 20px;
+}
+.movie {
+  flex-shrink: 0;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 450ms;
+  transform-origin: left center;
+  &--image {
+    width: 180px;
+    height: 250px;
+    cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &--title {
+    margin-top: 5px;
+    text-align: center;
+    color: #3F546C;
+    font-size: 16px;
+    font-weight: 300;
+  }
+}
+.movie + .movie {
+  margin-left: 10px;
+}
+.movie:hover ~ .movie {
+  transform: translateX(30px);
+}
+.movie:hover .movie {
+  opacity: .3;
+}
+.movie:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
