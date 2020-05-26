@@ -78,6 +78,9 @@
     overflow: auto;
     flex-wrap: nowrap;
   }
+  &--list.category-loading {
+    justify-content: center;
+  }
 }
 .category + .category {
   margin-top: 20px;

@@ -1,0 +1,81 @@
+.loading {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  div {
+    width: 1rem;
+    height: 1rem;
+    margin: 2rem 0.3rem;
+    background: var(--clr-primary);
+    border-radius: 50%;
+    animation: 0.9s bounce infinite alternate;
+
+    &:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+  }
+}
+.loading-light {
+  margin-top: 40%;
+  div {
+    background: var(--clr-light);
+  }
+}
+
+@keyframes bounce {
+  to {
+    opacity: 0.3;
+    transform: translate3d(0, -1rem, 0);
+  }
+}
+
+.fadeIn {
+  animation: 500ms fadeIn linear;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes modalIn {
+  0% {
+    transform: translateY(-3000px);
+  }
+  60% {
+    transform: translateY(25px);
+  }
+  75% {
+    transform: translateY(-10px);
+  }
+  90% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes modalOut {
+  0% {
+    transform: translateY(5px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+  75% {
+    transform: translateY(25px);
+  }
+  100% {
+    transform: translateY(-3000px);
+  }
+}

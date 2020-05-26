@@ -1,225 +1,197 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movies API</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./src/css/style.css">
-</head>
-<body>
-  <section class="home" id="home">
-    <!-- Aside Section -->
-    <aside class="sidebar" id="sidebar">
-      <figure class="logo">
-        <img src="./src/images/platzi-logo.png" alt="logo platzi video">
-        <p>Platzi<span>Video</span></p>
-      </figure>
-      <div class="sidebar--list">
-        <h3 class="sidebar--list-title">
-          Most Viewed Movies
-        </h3>
-        <ul class="sidebar--list-content" id="playlist-movie">
-          <!-- Add movies from API -->
-          <li class="sidebar--list-item"><p>1. Movie Item</p></li>
-          <li class="sidebar--list-item"><p>Movie Item</p></li>
-          <li class="sidebar--list-item"><p>Movie Item</p></li>
-          <li class="sidebar--list-item"><p>Movie Item</p></li>
-          <li class="sidebar--list-item"><p>Movie Item</p></li>
-          <li class="sidebar--list-item"><p>Movie Item</p></li>
-          <li class="sidebar--list-item"><p>Movie Item</p></li>
-          <li class="sidebar--list-item"><p>Movie Item</p></li>
-          <li class="sidebar--list-item"><p>Movie Item</p></li>
-          <li class="sidebar--list-item"><p>Movie Item</p></li>
-          <li class="sidebar--list-item"><p>10. Movie Item</p></li>
-        </ul>
-      </div>
-      <div class="sidebar--list">
-        <h3 class="sidebar--list-title">
-          Friends List
-        </h3>
-        <ul class="sidebar--list-content friends" id="list-friends">
-          <!-- Add users from API -->
-          <li class="sidebar--list-item">
-            <img src="./src//images/user.jpg" alt="">
-            <span>Mauro Quinteros</span>
-          </li>
-          <li class="sidebar--list-item">
-            <img src="./src//images/user.jpg" alt="">
-            <span>Mauro Quinteros</span>
-          </li>
-          <li class="sidebar--list-item">
-            <img src="./src//images/user.jpg" alt="">
-            <span>Mauro Quinteros</span>
-          </li>
-          <li class="sidebar--list-item">
-            <img src="./src//images/user.jpg" alt="">
-            <span>Mauro Quinteros</span>
-          </li>
-          <li class="sidebar--list-item">
-            <img src="./src//images/user.jpg" alt="">
-            <span>Mauro Quinteros</span>
-          </li>
-        </ul>
-      </div>
-    </aside>
-    <main class="main">
-      <!-- Form Section -->
-      <div class="search">
-        <form action="" class="search--form" id="search">
-          <input type="text" name="movie" placeholder="Search your favorite movie">
-        </form>
-      </div>
-      <div class="user">
-        <div class="user--wrapper">
-          <p class="user--name">Mauro Quinteros</p>
-          <img src="./src/images/user.jpg" alt="user image">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies API</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/css/styles.css" />
+  </head>
+  <body>
+    <section class="home" id="home">
+      <!-- ----- Aside Section ----- -->
+      <aside class="sidebar" id="sidebar">
+        <figure class="logo">
+          <img src="./src/images/platzi-logo.png" alt="logo platzi video" />
+          <p>Platzi<span>Video</span></p>
+        </figure>
+        <div class="sidebar--list">
+          <h3 class="sidebar--list-title">
+            Most Viewed Movies
+          </h3>
+          <ul class="sidebar--list-content" id="movie-list">
+            <!-- Add movies from API -->
+            <div class="loading loading-light">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </ul>
         </div>
+        <div class="sidebar--list">
+          <h3 class="sidebar--list-title">
+            Friends List
+          </h3>
+          <ul class="sidebar--list-content friends" id="friend-list">
+            <!-- Add users from API -->
+            <div class="loading loading-light">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </ul>
+        </div>
+      </aside>
+      <main class="main">
+        <!-- ----- Form Section ----- -->
+        <div class="search">
+          <form action="" class="search--form" id="search">
+            <input
+              type="text"
+              name="movie"
+              placeholder="Search your favorite movie"
+            />
+          </form>
+        </div>
+        <div class="user">
+          <div class="user--wrapper">
+            <p class="user--name">Mauro Quinteros</p>
+            <img src="./src/images/user.jpg" alt="user image" />
+          </div>
+        </div>
+        <div class="category-container">
+          <!-- ----- Action Category ----- -->
+          <section class="category">
+            <div class="category--wrapper">
+              <h3 class="category--topic">fight everywhere</h3>
+              <h2 class="category--title">Action</h2>
+              <div class="category--list category-loading" id="action">
+                <!-- Add movies of this category from API -->
+                <div class="loading">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- ----- Animation Category ----- -->
+          <section class="category">
+            <div class="category--wrapper">
+              <h3 class="category--topic">fun for kids</h3>
+              <h2 class="category--title">Animation</h2>
+              <div class="category--list category-loading" id="animation">
+                <!-- Add movies of this category from API -->
+                <div class="loading">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- ----- Comedy Category ----- -->
+          <section class="category">
+            <div class="category--wrapper">
+              <h3 class="category--topic">laugh loudly</h3>
+              <h2 class="category--title">Comedy</h2>
+              <div class="category--list category-loading" id="comedy">
+                <!-- Add movies of this category from API -->
+                <div class="loading">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- ----- Horror Section ----- -->
+          <section class="category">
+            <div class="category--wrapper">
+              <h3 class="category--topic">fear and scream</h3>
+              <h2 class="category--title">Horror</h2>
+              <div class="category--list category-loading" id="horror">
+                <!-- Add movies of this category from API -->
+                <div class="loading">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </section>
+    <!-- ----- Overlay ----- -->
+    <section class="overlay" id="overlay">
+      <div class="modal" id="modal">
+        <div class="loading">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <h1 class="modal--title">
+          <!-- Add title from List -->
+        </h1>
+        <figure class="modal--image">
+          <img src="" alt="" />
+        </figure>
+        <div class="modal--summary">
+          <!-- Add summary from List -->
+        </div>
+        <div class="modal--information" id="genre-list">
+          <p>Genres:</p>
+          <!-- Add genres from List -->
+        </div>
+        <button class="modal--button" id="hide-modal">
+          <svg
+            class="modal--button-icon"
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 492 492"
+            fill="#ccc"
+            xml:space="preserve"
+          >
+            <g>
+              <g>
+                <path
+                  d="M300.188,246L484.14,62.04c5.06-5.064,7.852-11.82,7.86-19.024c0-7.208-2.792-13.972-7.86-19.028L468.02,7.872
+			c-5.068-5.076-11.824-7.856-19.036-7.856c-7.2,0-13.956,2.78-19.024,7.856L246.008,191.82L62.048,7.872
+			c-5.06-5.076-11.82-7.856-19.028-7.856c-7.2,0-13.96,2.78-19.02,7.856L7.872,23.988c-10.496,10.496-10.496,27.568,0,38.052
+			L191.828,246L7.872,429.952c-5.064,5.072-7.852,11.828-7.852,19.032c0,7.204,2.788,13.96,7.852,19.028l16.124,16.116
+			c5.06,5.072,11.824,7.856,19.02,7.856c7.208,0,13.968-2.784,19.028-7.856l183.96-183.952l183.952,183.952
+			c5.068,5.072,11.824,7.856,19.024,7.856h0.008c7.204,0,13.96-2.784,19.028-7.856l16.12-16.116
+			c5.06-5.064,7.852-11.824,7.852-19.028c0-7.204-2.792-13.96-7.852-19.028L300.188,246z"
+                />
+              </g>
+            </g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+          </svg>
+        </button>
       </div>
-      <div class="category-container">
-        <!-- ----- Action Category ----- -->
-        <section class="category">
-          <div class="category--wrapper">
-            <h3 class="category--topic">fight everywhere</h3>
-            <h2 class="category--title">Action</h2>
-            <div class="category--list" id="action">
-              <div class="movie">
-                <figure class="movie--image">
-                  <img src="./src/images/movie.jpg" alt="">
-                </figure>
-                <p class="movie--title">Batman Unlimited: Animal Instincts</p>
-              </div>
-              <div class="movie">
-                <figure class="movie--image">
-                  <img src="./src/images/movie.jpg" alt="">
-                </figure>
-                <p class="movie--title">Batman Unlimited: Animal Instincts</p>
-              </div>
-              <div class="movie">
-                <figure class="movie--image">
-                  <img src="./src/images/movie.jpg" alt="">
-                </figure>
-                <p class="movie--title">Batman Unlimited: Animal Instincts</p>
-              </div>
-              <div class="movie">
-                <figure class="movie--image">
-                  <img src="./src/images/movie.jpg" alt="">
-                </figure>
-                <p class="movie--title">Batman Unlimited: Animal Instincts</p>
-              </div>
-              <div class="movie">
-                <figure class="movie--image">
-                  <img src="./src/images/movie.jpg" alt="">
-                </figure>
-                <p class="movie--title">Batman Unlimited: Animal Instincts</p>
-              </div>
-              <div class="movie">
-                <figure class="movie--image">
-                  <img src="./src/images/movie.jpg" alt="">
-                </figure>
-                <p class="movie--title">Batman Unlimited: Animal Instincts</p>
-              </div>
-              <div class="movie">
-                <figure class="movie--image">
-                  <img src="./src/images/movie.jpg" alt="">
-                </figure>
-                <p class="movie--title">Batman Unlimited: Animal Instincts</p>
-              </div>
-              <div class="movie">
-                <figure class="movie--image">
-                  <img src="./src/images/movie.jpg" alt="">
-                </figure>
-                <p class="movie--title">Batman Unlimited: Animal Instincts</p>
-              </div>
-              <div class="movie">
-                <figure class="movie--image">
-                  <img src="./src/images/movie.jpg" alt="">
-                </figure>
-                <p class="movie--title">Batman Unlimited: Animal Instincts</p>
-              </div>
-              <div class="movie">
-                <figure class="movie--image">
-                  <img src="./src/images/movie.jpg" alt="">
-                </figure>
-                <p class="movie--title">Batman Unlimited: Animal Instincts</p>
-              </div>
-              <div class="movie">
-                <figure class="movie--image">
-                  <img src="./src/images/movie.jpg" alt="">
-                </figure>
-                <p class="movie--title">Batman Unlimited: Animal Instincts</p>
-              </div>
-              <div class="movie">
-                <figure class="movie--image">
-                  <img src="./src/images/movie.jpg" alt="">
-                </figure>
-                <p class="movie--title">Batman Unlimited: Animal Instincts</p>
-              </div>
-              <div class="movie">
-                <figure class="movie--image">
-                  <img src="./src/images/movie.jpg" alt="">
-                </figure>
-                <p class="movie--title">Batman Unlimited: Animal Instincts</p>
-              </div>
-              <div class="movie">
-                <figure class="movie--image">
-                  <img src="./src/images/movie.jpg" alt="">
-                </figure>
-                <p class="movie--title">Batman Unlimited: Animal Instincts</p>
-              </div>
-              <!-- Add movies of this category from API -->
-            </div>
-          </div>
-        </section>
-        <!-- ----- Comedy Category ----- -->
-        <section class="category">
-          <div class="category--wrapper">
-            <h3 class="category--topic">laugh loud</h3>
-            <h2 class="category--title">Comedy</h2>
-            <div class="category--list" id="comedy">
-              <!-- Add movies of this category from API -->
-            </div>
-          </div>
-        </section>
-        <!-- ----- Category Section ----- -->
-        <section class="category">
-          <div class="category--wrapper">
-            <h3 class="category--topic">fear and scream</h3>
-            <h2 class="category--title">Horror</h2>
-            <div class="category--list" id="horror">
-              <!-- Add movies of this category from API -->
-            </div>
-          </div>
-        </section>
-      </div>
-    </main>
-  </section>
-  <!-- <div class="loading">
-    <div class="loader"></div>
-  </div>
-  <div class="container">
-    <div id="action">
-      <h2>Lista de películas de acción</h2>
-    </div>
-    <div id="comedy">
-      <h2>Lista de películas de comedía</h2>
-    </div>
-    <div id="horror">
-      <h2>Lista de películas de terror</h2>
-    </div>
-  </div>
-  <div class="container">
-    <div>
-      <h2>Lista del películas más vistas</h2>
-      <ul id="movie-list">
-      </ul>
-    </div>
-    <div>
-      <h2>Lista de usuarios</h2>
-      <ul id="user-list">
-      </ul>
-    </div>
-  </div> -->
-  <!-- <script src="./src/js/app.js"></script> -->
-</body>
+    </section>
+    <script src="./src/js/app.js"></script>
+  </body>
 </html>
