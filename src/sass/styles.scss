@@ -9,10 +9,10 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
-::-webkit-scrollbar {
+html::-webkit-scrollbar {
   display: none;
 }
-::-webkit-scrollbar-button {
+body::-webkit-scrollbar {
   display: none;
 }
 body {
