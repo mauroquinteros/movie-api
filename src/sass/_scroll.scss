@@ -22,6 +22,27 @@ $scroll-background2: #2c3661;
   display: none;
 }
 
+#category-container::-webkit-scrollbar {
+  width: 5px;
+  background-color: $scroll-background1;
+}
+#category-container::-webkit-scrollbar-button {
+  display: none;
+}
+#category-container::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(44, 54, 97, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(44, 54, 97, 0.3);
+  background-color: $scroll-background2;
+}
+#category-container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: $scroll-background1;
+}
+#category-container::-webkit-scrollbar-corner {
+  display: none;
+}
+
 #modal--summary::-webkit-scrollbar {
   display: none;
 }

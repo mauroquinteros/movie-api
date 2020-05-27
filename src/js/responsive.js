@@ -6,6 +6,6 @@ const categoriesContainer = document.querySelectorAll('.category')
 burgerBtn.addEventListener('click', () => {
   homeSection.classList.toggle('active')
 })
-categoryContainer.addEventListener('click', (ev) => {
+categoryContainer.addEventListener('click', () => {
   homeSection.classList.remove('active')
 })

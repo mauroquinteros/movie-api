@@ -46,8 +46,10 @@
 }
 @media screen and (max-width: 420px) {
   .modal {
-    height: 26em;
-    width: 24em;
+    width: 23em;
+    max-height: 90vh;
+    min-width: auto;
+    min-height: auto;
   }
 }
 @media screen and (max-width: 375px) {
@@ -63,8 +65,10 @@
     width: 100vw;
   }
   .modal {
-    height: 25em;
     width: 21em;
+    min-width: auto;
+    min-height: auto;
+    max-height: 90vh;
     padding: 1.5em;
     border-radius: .8em;
   }

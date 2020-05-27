@@ -9,6 +9,9 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 ::-webkit-scrollbar-button {
   display: none;
 }
