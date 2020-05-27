@@ -84,6 +84,57 @@ class Data {
     }
   }
 
+  // This function will use localStorage if you fetched all movies by category before
+  async cacheExistsByCategories(categories) {
+    const categoriesCache = window.localStorage.getItem("categories")
+    try {
+      if(categoriesCache) {
+        return JSON.parse(categoriesCache)
+      } else {
+        const categoriesResult = await this.getCategories(categories)
+        window.localStorage.setItem("categories", JSON.stringify(categoriesResult))
+        return categoriesResult
+      }
+    } catch (error) {
+      // This error will launch when the connection fail
+      throw new Error("Error 404")
+    }
+  }
+
+  // This function will use localStorage if you fetched all movies by rating before
+  async cacheExitsByRating(rating, limit) {
+    const ratingCache = window.localStorage.getItem("rating")
+    try {
+      if(ratingCache) {
+        return JSON.parse(ratingCache)
+      } else {
+        const moviesResult = await this.getMoviesByRating(rating, limit)
+        window.localStorage.setItem("rating", JSON.stringify(moviesResult))
+        return moviesResult
+      }
+    } catch (error) {
+      // This error will launch when the connection fail
+      throw new Error("Error 404")
+    }
+  }
+
+  // This function will use localStorage if you fetched all users before
+  async cacheExitsByUsers(nat, limit) {
+    const usersCache = window.localStorage.getItem("users")
+    try {
+      if(usersCache) {
+        return JSON.parse(usersCache)
+      } else {
+        const usersResult = await this.getRandomUsers(nat, limit)
+        window.localStorage.setItem("users", JSON.stringify(usersResult))
+        return usersResult
+      }
+    } catch (error) {
+      // This error will launch when the connection fail
+      throw new Error("Error 404")
+    }
+  }
+
 }
 
 class Movie extends Data{
@@ -112,7 +163,7 @@ class Movie extends Data{
   // This function get data from the API and then display into the category list
   async displayCategories() {
     try {
-      const categoriesData = await this.getCategories(this.categories)
+      const categoriesData = await this.cacheExistsByCategories(this.categories)
       categoriesData.forEach( (category, index) => {
         this.categoriesList.push({
           category: this.categories[index],
@@ -131,7 +182,7 @@ class Movie extends Data{
   // This function get data from the API and then display into the rating list
   async displayMoviesByRating() {
     try {
-      const moviesData = await this.getMoviesByRating(this.rating, this.limit)
+      const moviesData = await this.cacheExitsByRating(this.rating, this.limit)
       this.renderMoviesByRating(moviesData)
     } catch (error) {
       // Catch the error and then display into the list information about that error
@@ -378,7 +429,7 @@ class User extends Data{
   // This function get data from the API and then display into the list
   async displayUsers() {
     try {
-      const usersData = await this.getRandomUsers(this.nat, this.limit)
+      const usersData = await this.cacheExitsByUsers(this.nat, this.limit)
       this.renderRandomUsers(usersData)
     } catch (error) {
       // This function will work when the connection fail
