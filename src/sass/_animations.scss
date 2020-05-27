@@ -49,16 +49,16 @@
 
 @keyframes modalIn {
   0% {
-    transform: translateY(-3000px);
+    transform: translateY(-187.5rem);
   }
   60% {
-    transform: translateY(25px);
+    transform: translateY(1.5625rem);
   }
   75% {
-    transform: translateY(-10px);
+    transform: translateY(-0.625rem);
   }
   90% {
-    transform: translateY(5px);
+    transform: translateY(0.3125rem);
   }
   100% {
     transform: translateY(0px);
@@ -67,15 +67,15 @@
 
 @keyframes modalOut {
   0% {
-    transform: translateY(5px);
+    transform: translateY(0.3125rem);
   }
   60% {
-    transform: translateY(-10px);
+    transform: translateY(-0.625rem);
   }
   75% {
-    transform: translateY(25px);
+    transform: translateY(1.5625rem);
   }
   100% {
-    transform: translateY(-3000px);
+    transform: translateY(-187.5rem);
   }
 }

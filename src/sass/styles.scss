@@ -1,12 +1,11 @@
 :root {
-  --ft-family: 'Open Sans', sans-serif;
+  --ft-family: 'Nunito', sans-serif;
   --ft-size: 16px;
   --clr-primary: #151b31;
-  --clr-gray: #4f4f4f;
+  --clr-gray: rgb(102, 102, 102);
   --clr-light: #ffffff;
-  --clr-secundary: #ff0000;
+  --clr-secundary: rgb(149, 202, 62);
 }
-
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -25,12 +24,12 @@ figure, h1, h2, h3, p {
 }
 a {
   text-decoration: none;
-  color: #136CB2;
 }
 img {
   width: 100%;
 }
 .home {
+  position: relative;
   display: grid;
   grid-template-columns: 350px 1fr;
   grid-template-rows: 1fr 1fr;
@@ -39,82 +38,8 @@ img {
 }
 
 @import './scroll';
-@import './sidebar';
-@import './main';
 @import './animations';
+@import './main';
+@import './sidebar';
 @import './modal';
-
-// .loading {
-//   border: 1px solid red;
-//   display: flex;
-//   width: 100%;
-//   min-height: 100px;
-//   justify-content: center;
-//   align-items: center;
-// }
-// .loader {
-//   border: 1px solid blue;
-//   height: 1vmin;
-//   left: 50%;
-//   /* margin: -5vmin 0 0 -5vmin; */
-//   position: fixed;
-//   top: 50%;
-//   width: 1vmin;
-// }
-// .loader::before {
-//   content: "";
-//   animation: blueRotate 3s linear infinite;
-//   background-color: var(--clr-2);
-//   height: 5vmin;
-//   left: 0;
-//   position: absolute;
-//   top: 0;
-//   width: 5vmin;
-//   opacity: .5;
-// }
-// .loader::after {
-//   content: "";
-//   animation: pinkRotate 3s linear infinite;
-//   background-color: var(--clr-3);
-//   opacity: .5;
-//   height: 5vmin;
-//   width: 5vmin;
-//   position: absolute;
-//   left: 5vmin;
-//   top: 5vmin;
-// }
-// @keyframes blueRotate {
-//   0% {
-//     transform: translate(0, 0) rotate(0);
-//   }
-//   25%{
-//     transform: translate(5vmin, 0) rotate(90deg);
-//   }
-//   50%{
-//     transform: translate(5vmin, 5vmin) rotate(180deg);
-//   }
-//   75%{
-//     transform: translate(0, 5vmin) rotate(270deg);
-//   }
-//   100%{
-//     transform: translate(0, 0) rotate(360deg);
-//   }
-// }
-
-// @keyframes pinkRotate {
-//   0% {
-//     transform: translate(0, 0);
-//   }
-//   25%{
-//     transform: translate(-5vmin, 0);
-//   }
-//   50%{
-//     transform: translate(-5vmin, -5vmin);
-//   }
-//   75%{
-//     transform: translate(0, -5vmin);
-//   }
-//   100%{
-//     transform: translate(0, 0);
-//   }
-// }
+@import './responsive';

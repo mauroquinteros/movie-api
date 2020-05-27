@@ -8,7 +8,7 @@
   overflow: auto;
   color: var(--clr-light);
   background-color: var(--clr-primary);
-
+  transition: all .5s;
   &--list {
     margin-top: 1.5em;
     &-content {
@@ -21,7 +21,7 @@
       font-weight: 600;
       margin: 0 1em;
       padding-bottom: .3em;
-      border-bottom: 0.03em solid #fff;
+      border-bottom: 0.03em solid var(--clr-light);
     }
     &-item {
       // border: 1px solid red;
@@ -42,9 +42,9 @@
       align-items: center;
     }
     &-content.friends img {
-      width: 40px;
-      height: 40px;
-      margin-right: 10px;
+      width: 2.5em;
+      height: 2.5em;
+      margin-right: 0.625em;
       border-radius: 50%;
     }
     &-content.friends span {
@@ -59,18 +59,18 @@
 
   &:hover{
     cursor: pointer;
-    text-shadow: 0px 0px 5px #95ca3e;
+    text-shadow: 0px 0px 5px var(--clr-secundary);
   }
   img {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
+    width: 2.5em;
+    height: 2.5em;
+    margin-right: 0.625em;
   }
   p {
     font-size: 2em;
     font-weight: 600;
   }
   span {
-    color: #95ca3e;
+    color: var(--clr-secundary);
   }
 }

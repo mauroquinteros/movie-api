@@ -147,6 +147,7 @@ class Movie extends Data{
       rating_container = null,
       limit = 0,
       categoriesList = [],
+      movieList = [],
       form = null
     } = {}
   ) {
@@ -157,6 +158,7 @@ class Movie extends Data{
     this.rating_container = rating_container
     this.limit = limit
     this.categoriesList = categoriesList
+    this.movieList = movieList
     this.form = form
   }
 
@@ -183,6 +185,7 @@ class Movie extends Data{
   async displayMoviesByRating() {
     try {
       const moviesData = await this.cacheExitsByRating(this.rating, this.limit)
+      this.movieList = moviesData
       this.renderMoviesByRating(moviesData)
     } catch (error) {
       // Catch the error and then display into the list information about that error
@@ -204,7 +207,7 @@ class Movie extends Data{
         event.target.classList.add('fadeIn')
       })
       // Add a click event for the image to display a modal to show more information about movie
-      this.addEventClick(movieImage)
+      this.addEventClickCategory(movieImage)
     })
   }
 
@@ -214,6 +217,7 @@ class Movie extends Data{
     movies.forEach((movie, index) => {
       const movieElement = this.movieByRatingTemplate(movie, ++index)
       this.rating_container.appendChild(movieElement)
+      this.addEventClickRating(movieElement)
     })
   }
 
@@ -238,6 +242,7 @@ class Movie extends Data{
   movieByRatingTemplate(movie, number) {
     const movieElement = document.createElement('li')
     movieElement.classList.add('sidebar--list-item')
+    movieElement.dataset.id = movie.id
     movieElement.innerHTML =
     `
     <p>${number}. ${movie.title_english}</p>
@@ -246,17 +251,30 @@ class Movie extends Data{
   }
 
   // Get id and category of a movie, then find that movie and finally display into the modal
-  showFullInformation(movie) {
+  showInformationCategory(movie) {
     const id = movie.dataset.id
     const category = movie.dataset.category
-    const dataMovie = this.findMovie(id, category)
+    const dataMovie = this.findMovieCategory(id, category)
+    this.addInformationIntoModal(dataMovie)
+  }
+
+  // Get id and of a movie in the rating list, then find that movie and finally display into the modal
+  showInformationRating(movie) {
+    const id = movie.dataset.id
+    const dataMovie = this.findMovieRating(id)
     this.addInformationIntoModal(dataMovie)
   }
 
   // This function find a movie into the categoriesList[]
-  findMovie(id, category) {
+  findMovieCategory(id, category) {
     const {list} = this.categoriesList.find(item => item.category === category)
     const dataMovie = list.find(movie => movie.id === parseInt(id, 10))
+    return dataMovie
+  }
+
+  // This function find a movie into the moviesList[]
+  findMovieRating(id) {
+    const dataMovie = this.movieList.find(item => item.id === parseInt(id, 10))
     return dataMovie
   }
 
@@ -319,7 +337,7 @@ class Movie extends Data{
       try {
         // Create a new object to get the data of the form
         const formData = new FormData($formElement)
-
+        $formElement.reset()
         // Get movie by name from the API
         const movieData = await this.getMovieByName(formData.get('movie'))
 
@@ -335,9 +353,16 @@ class Movie extends Data{
   }
 
   // Create an event to display more information
-  addEventClick(element) {
+  addEventClickCategory(element) {
     element.addEventListener('click', () => {
-      this.showFullInformation(element.parentNode.parentNode)
+      this.showInformationCategory(element.parentNode.parentNode)
+    })
+  }
+
+  // Create an event to display more information
+  addEventClickRating(element) {
+    element.addEventListener('click', () => {
+      this.showInformationRating(element)
     })
   }
 
@@ -367,14 +392,14 @@ class Movie extends Data{
   // When the connection fail, this function will display information about that error
   renderError404(container) {
     const errorContainer = document.createElement('div')
-    errorContainer.style = "display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 2rem"
+    errorContainer.classList.add('error404Container')
     container.firstElementChild.remove()
     const errorImage = document.createElement('img')
     errorImage.setAttribute('src', '/src/images/error-404.svg')
-    errorImage.style.width = "200px"
+    errorImage.classList.add('image404')
     const errorMessage = document.createElement('p')
     errorMessage.textContent = "Error 404, The connection failed"
-    errorMessage.style = "font-weight: 300; margin-top: 1rem;"
+    errorMessage.classList.add('message404')
     errorContainer.appendChild(errorImage)
     errorContainer.appendChild(errorMessage)
     container.appendChild(errorContainer)
@@ -391,10 +416,10 @@ class Movie extends Data{
       this.hideModal()
     })
     const errorContainer = document.createElement('div')
-    errorContainer.classList.add('error')
+    errorContainer.classList.add('errorNotFound')
     const errorImage = document.createElement('img')
     errorImage.setAttribute('src', '/src/images/not-found.svg')
-    errorImage.style.width = "400px"
+    errorImage.classList.add('imageNotFound')
     const errorMessage = document.createElement('p')
     errorMessage.textContent = "Results not found"
     container.classList.add('modal-error')
@@ -407,7 +432,7 @@ class Movie extends Data{
   deleteErrorContainer(container) {
     const arrayElements = [...container.children]
     arrayElements.forEach(element => {
-      if(element.classList.contains('error')) element.remove()
+      if(element.classList.contains('errorNotFound')) element.remove()
     })
   }
 
@@ -463,15 +488,15 @@ class User extends Data{
   // When the connection fail, this function will display information about that error
   renderError404(container) {
     const errorContainer = document.createElement('div')
-    errorContainer.style = "display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 2rem"
-
+    errorContainer.classList.add('error404Container')
     container.firstElementChild.remove()
     const errorImage = document.createElement('img')
     errorImage.setAttribute('src', '/src/images/error-404.svg')
-    errorImage.style = "width: 200px; height: 108.5px!important; margin: 0!important;"
+    errorImage.classList.add('image404')
+    errorImage.style = "height: 108.5px!important; margin: 0!important;"
     const errorMessage = document.createElement('p')
     errorMessage.textContent = "Error 404, The connection failed"
-    errorMessage.style = "font-weight: 300; margin-top: 1rem;"
+    errorMessage.classList.add('message404')
     errorContainer.appendChild(errorImage)
     errorContainer.appendChild(errorMessage)
     container.appendChild(errorContainer)

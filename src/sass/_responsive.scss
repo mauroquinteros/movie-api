@@ -1,0 +1,71 @@
+@media screen and (max-width: 1400px) {
+  .modal {
+    min-width: 26em;
+    min-height: 27em;
+  }
+}
+@media screen and (max-width: 768px) {
+  :root {
+    --ft-size: 16px;
+  }
+  .home {
+    grid-template-areas: "main main"
+                         "main main";
+    .sidebar {
+      position: absolute;
+      z-index: 4;
+      min-width: 21.875em;
+      height: 100vh;
+      left: -100%;
+      padding-top: 4.8em;
+    }
+    .header {
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas: "burger search user";
+      .burger {
+        display: block;
+      }
+      .user {
+        &--wrapper {
+          p {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .modal {
+    min-width: 25em;
+    min-height: 27em;
+  }
+  .home.active {
+    .sidebar {
+      left: 0;
+    }
+  }
+}
+@media screen and (max-width: 420px) {
+  .modal {
+    height: 26em;
+    width: 24em;
+  }
+}
+@media screen and (max-width: 375px) {
+  :root {
+    --ft-size: 14px;
+  }
+  .home {
+    grid-template-columns: 1fr;
+    grid-template-areas: "main"
+                         "main";
+  }
+  .sidebar {
+    width: 100vw;
+  }
+  .modal {
+    height: 25em;
+    width: 21em;
+    padding: 1.5em;
+    border-radius: .8em;
+  }
+}
