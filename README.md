@@ -6,6 +6,6 @@ Using CSS Grid, flexbox, animation, media queries, fetch, FormData and LocalStor
 
 ![Design preview for the Huddle landing page with alternating feature blocks coding challenge](https://repository-images.githubusercontent.com/265067862/8e072d80-9f95-11ea-8c6d-ee2e16c799bb)
 
-Project Demo: https://movie-api-seven.now.sh/
+Project [Demo](https://movie-api-seven.vercel.app/)
 
 Develop by [mauroquinteros](https://twitter.com/maurooquinteros) 💚
